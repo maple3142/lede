@@ -97,6 +97,8 @@ jobs:
           # 无论你想要对固件进行怎样的定制, 都需要且只需要修改 EOF 回环内的内容.
           # 
           
+          # Custom
+          cat >> .config << EOF
           CONFIG_TARGET_ath79=y
           CONFIG_TARGET_ath79_generic=y
           CONFIG_TARGET_ath79_generic_DEVICE_tplink_archer-c6-v2-us=y
@@ -108,6 +110,7 @@ jobs:
           CONFIG_TARGET_ARCH_PACKAGES="mips_24kc"
           CONFIG_DEFAULT_TARGET_OPTIMIZATION="-Os -pipe -mno-branch-likely -mips32r2 -mtune=24kc"
           CONFIG_CPU_TYPE="24kc"
+          EOF
 
           # 编译x64固件:
           # cat >> .config <<EOF
